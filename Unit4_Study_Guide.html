@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AP Macro Unit 4: The Financial Sector — Interactive Study Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0F2439;
+  --navy-light: #1A3A5C;
+  --navy-dark: #091828;
+  --teal: #0D9488;
+  --teal-light: #14B8A6;
+  --teal-bg: #E6FAF8;
+  --gold: #F59E0B;
+  --gold-light: #FDE68A;
+  --gold-bg: #FFFBEB;
+  --bg: #F0F4F8;
+  --card: #FFFFFF;
+  --text: #1A1A2E;
+  --text-muted: #5A6C7D;
+  --red: #EF4444;
+  --red-light: #FEE2E2;
+  --green: #10B981;
+  --green-light: #D1FAE5;
+  --purple: #8B5CF6;
+  --purple-light: #EDE9FE;
+  --border: #E2E8F0;
+  --shadow: 0 4px 20px rgba(15,36,57,0.08);
+  --shadow-lg: 0 8px 40px rgba(15,36,57,0.12);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); color: var(--text); background: var(--bg); line-height: 1.7; }
+
+/* Progress Bar */
+.progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(90deg, var(--teal), var(--gold)); z-index: 1001; transition: width 0.1s; width: 0%; }
+
+/* Nav */
+.nav { position: fixed; top: 4px; left: 0; right: 0; z-index: 1000; background: rgba(15,36,57,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.1); }
+.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+.nav-brand { color: white; font-family: var(--font-display); font-size: 1.1rem; white-space: nowrap; }
+.nav-links { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+.nav-links::-webkit-scrollbar { display: none; }
+.nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.78rem; font-weight: 500; padding: 6px 10px; border-radius: 6px; cursor: pointer; white-space: nowrap; transition: all 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: white; background: rgba(255,255,255,0.1); }
+
+/* Hero */
+.hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 50%, #1E4D6E 100%); color: white; padding: 140px 24px 80px; text-align: center; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle at 30% 40%, rgba(13,148,136,0.15) 0%, transparent 50%), radial-gradient(circle at 70% 60%, rgba(245,158,11,0.1) 0%, transparent 50%); }
+.hero h1 { font-family: var(--font-display); font-size: clamp(2.2rem, 5vw, 3.8rem); margin-bottom: 16px; position: relative; }
+.hero .subtitle { font-size: 1.2rem; opacity: 0.85; max-width: 600px; margin: 0 auto 12px; position: relative; }
+.hero .exam-weight { display: inline-block; background: rgba(245,158,11,0.2); border: 1px solid rgba(245,158,11,0.4); padding: 6px 18px; border-radius: 20px; font-size: 0.9rem; color: var(--gold-light); margin-top: 12px; position: relative; }
+.hero .start-btn { display: inline-block; margin-top: 28px; padding: 14px 36px; background: var(--teal); color: white; border: none; border-radius: 30px; font-size: 1.05rem; font-weight: 600; cursor: pointer; transition: all 0.3s; position: relative; font-family: var(--font-body); }
+.hero .start-btn:hover { background: var(--teal-light); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(13,148,136,0.3); }
+
+/* Sections */
+.section { padding: 80px 24px; max-width: 1100px; margin: 0 auto; }
+.section-badge { display: inline-block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 5px 14px; border-radius: 20px; margin-bottom: 12px; }
+.badge-teal { background: var(--teal-bg); color: var(--teal); }
+.badge-gold { background: var(--gold-bg); color: #B45309; }
+.badge-purple { background: var(--purple-light); color: var(--purple); }
+.badge-red { background: var(--red-light); color: var(--red); }
+.badge-green { background: var(--green-light); color: #059669; }
+.section h2 { font-family: var(--font-display); font-size: 2rem; margin-bottom: 8px; color: var(--navy); }
+.section .section-desc { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 36px; max-width: 700px; }
+
+/* Cards */
+.card { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 28px; border: 1px solid var(--border); transition: transform 0.2s, box-shadow 0.2s; }
+.card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 24px; }
+.card h3 { font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 8px; color: var(--navy); }
+.card p { color: var(--text-muted); font-size: 0.95rem; }
+
+/* Formula Box */
+.formula-box { background: var(--navy); color: white; padding: 20px 28px; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 1.1rem; text-align: center; margin: 20px 0; position: relative; }
+.formula-box .label { font-family: var(--font-body); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.6; display: block; margin-bottom: 8px; }
+.formula-box .highlight { color: var(--gold); }
+
+/* Calculator Styles */
+.calc-container { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 32px; border: 1px solid var(--border); margin-top: 24px; }
+.calc-row { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+.calc-label { min-width: 180px; font-weight: 600; font-size: 0.95rem; }
+.calc-slider { flex: 1; min-width: 200px; -webkit-appearance: none; height: 8px; border-radius: 4px; background: var(--border); outline: none; }
+.calc-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; border-radius: 50%; background: var(--teal); cursor: pointer; box-shadow: 0 2px 8px rgba(13,148,136,0.3); }
+.calc-slider::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: var(--teal); cursor: pointer; border: none; }
+.calc-value { min-width: 70px; text-align: center; font-family: var(--font-mono); font-weight: 600; font-size: 1.1rem; color: var(--navy); background: var(--bg); padding: 6px 12px; border-radius: 8px; }
+.calc-result { background: linear-gradient(135deg, var(--navy), var(--navy-light)); color: white; border-radius: var(--radius-sm); padding: 24px; text-align: center; margin-top: 16px; }
+.calc-result .big-num { font-family: var(--font-mono); font-size: 2.5rem; font-weight: 700; color: var(--gold); }
+.calc-result .steps { font-size: 0.9rem; opacity: 0.8; margin-top: 8px; font-family: var(--font-mono); }
+
+/* Interactive Graph */
+.graph-container { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 24px; border: 1px solid var(--border); margin-top: 24px; }
+.graph-canvas-wrap { display: flex; justify-content: center; margin: 16px 0; }
+.graph-canvas-wrap canvas { max-width: 100%; border-radius: 8px; }
+.graph-buttons { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 16px; }
+.graph-btn { padding: 8px 18px; border: 2px solid var(--border); background: white; border-radius: 8px; cursor: pointer; font-family: var(--font-body); font-size: 0.85rem; font-weight: 600; transition: all 0.2s; }
+.graph-btn:hover { border-color: var(--teal); color: var(--teal); }
+.graph-btn.active { background: var(--teal); color: white; border-color: var(--teal); }
+.graph-btn.reset { background: var(--navy); color: white; border-color: var(--navy); }
+.graph-explain { background: var(--bg); border-radius: var(--radius-sm); padding: 16px 20px; margin-top: 16px; font-size: 0.9rem; color: var(--text-muted); min-height: 60px; }
+
+/* Sorting Game */
+.sort-game { margin-top: 24px; }
+.sort-items { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 20px 0; }
+.sort-item { padding: 10px 20px; background: var(--card); border: 2px solid var(--border); border-radius: 10px; cursor: pointer; font-weight: 500; font-size: 0.9rem; transition: all 0.3s; user-select: none; }
+.sort-item:hover { border-color: var(--teal); transform: translateY(-2px); }
+.sort-item.correct { background: var(--green-light); border-color: var(--green); color: #059669; }
+.sort-item.wrong { background: var(--red-light); border-color: var(--red); animation: shake 0.4s; }
+.sort-buckets { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+.sort-bucket { border: 2px dashed var(--border); border-radius: var(--radius); padding: 20px; min-height: 120px; text-align: center; transition: all 0.2s; }
+.sort-bucket.active { border-color: var(--teal); background: var(--teal-bg); }
+.sort-bucket h4 { font-family: var(--font-display); margin-bottom: 12px; }
+.sort-bucket .placed { display: inline-block; padding: 4px 12px; margin: 3px; background: var(--green-light); color: #059669; border-radius: 6px; font-size: 0.8rem; font-weight: 500; }
+.sort-score { text-align: center; margin-top: 16px; font-weight: 600; }
+
+/* Scenario Cards */
+.scenario-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 24px; }
+.scenario-card { background: var(--card); border: 2px solid var(--border); border-radius: var(--radius-sm); padding: 20px; cursor: pointer; transition: all 0.3s; }
+.scenario-card:hover { border-color: var(--teal); transform: translateY(-2px); }
+.scenario-card .event { font-weight: 600; font-size: 0.95rem; margin-bottom: 8px; }
+.scenario-card .icon { font-size: 1.5rem; margin-bottom: 8px; }
+.scenario-card .result { display: none; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 0.88rem; color: var(--text-muted); }
+.scenario-card.revealed .result { display: block; }
+.scenario-card.revealed { border-color: var(--teal); background: var(--teal-bg); }
+
+/* Ripple Chain */
+.ripple-chain { display: flex; align-items: center; gap: 8px; overflow-x: auto; padding: 20px 0; flex-wrap: wrap; justify-content: center; }
+.ripple-step { padding: 12px 16px; border-radius: 10px; font-size: 0.82rem; font-weight: 600; text-align: center; min-width: 120px; opacity: 0; transform: translateY(10px); transition: all 0.4s; }
+.ripple-step.visible { opacity: 1; transform: translateY(0); }
+.ripple-arrow { font-size: 1.2rem; color: var(--text-muted); opacity: 0; transition: opacity 0.3s; }
+.ripple-arrow.visible { opacity: 1; }
+
+/* Flashcards */
+.flashcard-container { perspective: 1000px; max-width: 550px; margin: 24px auto; }
+.flashcard { width: 100%; height: 300px; position: relative; transform-style: preserve-3d; transition: transform 0.6s; cursor: pointer; }
+.flashcard.flipped { transform: rotateY(180deg); }
+.flashcard-face { position: absolute; inset: 0; backface-visibility: hidden; border-radius: var(--radius); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 32px; text-align: center; }
+.flashcard-front { background: linear-gradient(135deg, var(--navy), var(--navy-light)); color: white; box-shadow: var(--shadow-lg); }
+.flashcard-front .unit-tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; background: rgba(255,255,255,0.15); padding: 4px 12px; border-radius: 12px; margin-bottom: 16px; }
+.flashcard-front .term { font-family: var(--font-display); font-size: 1.5rem; }
+.flashcard-back { background: white; box-shadow: var(--shadow-lg); transform: rotateY(180deg); border: 2px solid var(--teal); }
+.flashcard-back .definition { font-size: 1rem; color: var(--text); line-height: 1.6; }
+.flashcard-nav { display: flex; align-items: center; justify-content: center; gap: 20px; margin-top: 20px; }
+.flashcard-nav button { padding: 10px 24px; border: 2px solid var(--border); background: white; border-radius: 8px; cursor: pointer; font-weight: 600; font-family: var(--font-body); transition: all 0.2s; }
+.flashcard-nav button:hover { border-color: var(--teal); color: var(--teal); }
+.flashcard-counter { font-weight: 600; color: var(--text-muted); min-width: 80px; text-align: center; }
+.flashcard-filter { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 20px; }
+.filter-btn { padding: 6px 14px; border: 1px solid var(--border); background: white; border-radius: 20px; cursor: pointer; font-size: 0.8rem; font-weight: 500; transition: all 0.2s; font-family: var(--font-body); }
+.filter-btn.active { background: var(--navy); color: white; border-color: var(--navy); }
+.filter-btn:hover { border-color: var(--teal); }
+
+/* Quiz */
+.quiz-question { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 28px; margin-bottom: 20px; border: 1px solid var(--border); border-left: 4px solid var(--navy); }
+.quiz-question.answered-correct { border-left-color: var(--green); }
+.quiz-question.answered-wrong { border-left-color: var(--red); }
+.quiz-q-text { font-weight: 600; font-size: 1rem; margin-bottom: 16px; }
+.quiz-q-num { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+.quiz-option { display: block; width: 100%; text-align: left; padding: 12px 16px; margin-bottom: 8px; background: var(--bg); border: 2px solid transparent; border-radius: var(--radius-sm); cursor: pointer; font-family: var(--font-body); font-size: 0.92rem; transition: all 0.2s; }
+.quiz-option:hover:not(.locked) { border-color: var(--teal); background: var(--teal-bg); }
+.quiz-option.selected-correct { background: var(--green-light); border-color: var(--green); color: #059669; font-weight: 600; }
+.quiz-option.selected-wrong { background: var(--red-light); border-color: var(--red); }
+.quiz-option.show-correct { border-color: var(--green); background: var(--green-light); }
+.quiz-option.locked { cursor: default; }
+.quiz-explanation { display: none; margin-top: 12px; padding: 12px 16px; background: var(--bg); border-radius: 8px; font-size: 0.88rem; color: var(--text-muted); border-left: 3px solid var(--teal); }
+.quiz-explanation.visible { display: block; }
+.quiz-scoreboard { background: linear-gradient(135deg, var(--navy), var(--navy-light)); color: white; border-radius: var(--radius); padding: 32px; text-align: center; margin-top: 24px; display: none; }
+.quiz-scoreboard.visible { display: block; }
+.quiz-scoreboard .score-big { font-family: var(--font-mono); font-size: 3rem; color: var(--gold); font-weight: 700; }
+.quiz-scoreboard .score-label { font-size: 1.1rem; opacity: 0.8; margin-top: 4px; }
+
+/* Matching Game */
+.match-container { margin-top: 24px; }
+.match-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.match-col h4 { font-family: var(--font-display); margin-bottom: 12px; text-align: center; }
+.match-item { padding: 12px 16px; margin-bottom: 8px; background: var(--card); border: 2px solid var(--border); border-radius: var(--radius-sm); cursor: pointer; font-size: 0.88rem; transition: all 0.2s; user-select: none; }
+.match-item:hover:not(.matched) { border-color: var(--teal); }
+.match-item.selected { border-color: var(--gold); background: var(--gold-bg); box-shadow: 0 0 0 2px rgba(245,158,11,0.3); }
+.match-item.matched { background: var(--green-light); border-color: var(--green); color: #059669; cursor: default; opacity: 0.8; }
+.match-item.wrong { animation: shake 0.4s; border-color: var(--red); }
+.match-score { text-align: center; margin-top: 16px; font-weight: 600; }
+
+/* Tabs */
+.tabs { display: flex; gap: 4px; margin-bottom: 24px; flex-wrap: wrap; }
+.tab { padding: 8px 18px; border: 2px solid var(--border); background: white; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: all 0.2s; font-family: var(--font-body); }
+.tab.active { background: var(--navy); color: white; border-color: var(--navy); }
+.tab:hover:not(.active) { border-color: var(--teal); }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* Utility */
+.text-center { text-align: center; }
+.mt-2 { margin-top: 16px; }
+.mt-3 { margin-top: 24px; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.concept-box { background: var(--bg); border-radius: var(--radius-sm); padding: 20px; border-left: 4px solid var(--teal); margin: 16px 0; }
+.concept-box.gold { border-left-color: var(--gold); }
+.concept-box.red { border-left-color: var(--red); }
+.concept-box h4 { font-family: var(--font-display); margin-bottom: 6px; }
+.divider { border: none; border-top: 2px solid var(--border); margin: 60px 0; }
+
+@keyframes shake { 0%, 100% { transform: translateX(0); } 20%, 60% { transform: translateX(-6px); } 40%, 80% { transform: translateX(6px); } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.fade-in { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-brand { display: none; }
+  .hero h1 { font-size: 1.8rem; }
+  .section { padding: 50px 16px; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .sort-buckets { grid-template-columns: 1fr; }
+  .match-grid { grid-template-columns: 1fr; }
+  .calc-row { flex-direction: column; align-items: stretch; }
+  .calc-label { min-width: auto; }
+  .flashcard { height: 260px; }
+}
+
+/* Study guide expand */
+.study-section { margin-bottom: 12px; }
+.study-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-sm); cursor: pointer; font-weight: 600; transition: all 0.2s; }
+.study-header:hover { background: var(--bg); }
+.study-header .arrow { transition: transform 0.3s; }
+.study-header.open .arrow { transform: rotate(180deg); }
+.study-body { display: none; padding: 16px 20px; background: var(--card); border: 1px solid var(--border); border-top: none; border-radius: 0 0 var(--radius-sm) var(--radius-sm); font-size: 0.92rem; line-height: 1.7; color: var(--text-muted); }
+.study-body.open { display: block; }
+
+.footer { background: var(--navy); color: white; text-align: center; padding: 40px 24px; font-size: 0.9rem; opacity: 0.8; }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav class="nav">
+<div class="nav-inner">
+  <span class="nav-brand">Unit 4: Financial Sector</span>
+  <div class="nav-links">
+    <a data-target="assets" onclick="scrollToSection('assets')">4.1 Assets</a>
+    <a data-target="rates" onclick="scrollToSection('rates')">4.2 Rates</a>
+    <a data-target="money" onclick="scrollToSection('money')">4.3 Money</a>
+    <a data-target="banking" onclick="scrollToSection('banking')">4.4 Banking</a>
+    <a data-target="moneymarket" onclick="scrollToSection('moneymarket')">4.5 Market</a>
+    <a data-target="monetary" onclick="scrollToSection('monetary')">4.6 Policy</a>
+    <a data-target="loanable" onclick="scrollToSection('loanable')">4.7 Loanable</a>
+    <a data-target="flashcards" onclick="scrollToSection('flashcards')">Flashcards</a>
+    <a data-target="quiz" onclick="scrollToSection('quiz')">Quiz</a>
+  </div>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>The Financial Sector</h1>
+  <p class="subtitle">AP Macroeconomics Unit 4 — an interactive study guide with calculators, graphs, games, flashcards, and a full practice quiz.</p>
+  <div class="exam-weight">18–23% of the AP Exam</div>
+  <br>
+  <button class="start-btn" onclick="scrollToSection('assets')">Start Learning</button>
+</section>
+
+<!-- ============================================ -->
+<!-- 4.1 FINANCIAL ASSETS -->
+<!-- ============================================ -->
+<section class="section fade-in" id="assets">
+  <span class="section-badge badge-teal">Unit 4.1</span>
+  <h2>Financial Assets</h2>
+  <p class="section-desc">Understand the different types of financial assets — stocks, bonds, and more — and how interest rates connect them all.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <h3>Stocks</h3>
+      <p>Ownership shares in a company. You're literally buying a piece of the business. Higher risk, higher potential reward. When Apple's stock goes up, every shareholder gets richer — when it crashes, so does your portfolio. No guaranteed return.</p>
+    </div>
+    <div class="card">
+      <h3>Bonds</h3>
+      <p>Loans you give to a government or corporation. They promise to pay you back with interest. Lower risk than stocks. Think of it as being the bank — you lend money and collect interest payments until they return your principal.</p>
+    </div>
+    <div class="card">
+      <h3>Interest Rates &amp; Bond Prices</h3>
+      <p>This is an <strong>AP exam favorite</strong>: bond prices and interest rates move in <em>opposite directions</em>. When rates rise, existing bonds lose value (because new bonds pay more). When rates fall, existing bonds gain value.</p>
+    </div>
+    <div class="card">
+      <h3>FDIC Insurance</h3>
+      <p>The government insures bank deposits up to <strong>$250,000</strong> per depositor, per bank. This prevents bank runs. Your savings account is safe even if the bank fails. Stocks and crypto? Not covered.</p>
+    </div>
+  </div>
+
+  <div class="formula-box">
+    <span class="label">Bond Price & Interest Rate Relationship</span>
+    Interest Rates <span class="highlight">↑</span> → Bond Prices <span class="highlight">↓</span> &nbsp;|&nbsp;
+    Interest Rates <span class="highlight">↓</span> → Bond Prices <span class="highlight">↑</span>
+  </div>
+
+  <h3 style="margin-top:36px; font-family: var(--font-display); color: var(--navy);">Time Value of Money Calculator</h3>
+  <p style="color: var(--text-muted); margin-bottom: 8px;">See how $1,000 grows (or doesn't) over time at different interest rates.</p>
+  <div class="calc-container">
+    <div class="calc-row">
+      <span class="calc-label">Interest Rate (APY)</span>
+      <input type="range" class="calc-slider" id="tvmRate" min="0" max="15" step="0.5" value="5">
+      <span class="calc-value" id="tvmRateVal">5.0%</span>
+    </div>
+    <div class="calc-row">
+      <span class="calc-label">Years</span>
+      <input type="range" class="calc-slider" id="tvmYears" min="1" max="40" step="1" value="10">
+      <span class="calc-value" id="tvmYearsVal">10</span>
+    </div>
+    <div class="calc-result">
+      <div class="steps" id="tvmFormula">$1,000 × (1 + 0.05)^10</div>
+      <div class="big-num" id="tvmResult">$1,628.89</div>
+      <div class="steps" id="tvmGain">You earned $628.89 in interest</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================================ -->
+<!-- 4.2 NOMINAL vs REAL INTEREST RATES -->
+<!-- ============================================ -->
+<section class="section fade-in" id="rates">
+  <span class="section-badge badge-gold">Unit 4.2</span>
+  <h2>Nominal vs. Real Interest Rates</h2>
+  <p class="section-desc">The Fisher Equation is one of the most tested formulas on the AP exam. Know it cold.</p>
+
+  <div class="grid-2">
+    <div class="concept-box">
+      <h4>Nominal Rate</h4>
+      <p style="color:var(--text-muted); font-size:0.92rem;">The "sticker price" interest rate — what the bank advertises. Does NOT account for inflation. If your savings account says 4.5%, that's the nominal rate.</p>
+    </div>
+    <div class="concept-box gold">
+      <h4>Real Rate</h4>
+      <p style="color:var(--text-muted); font-size:0.92rem;">What your money <em>actually</em> earns after inflation eats away at it. This is what matters for your purchasing power. Real rate = Nominal rate - Inflation.</p>
+    </div>
+  </div>
+
+  <div class="formula-box">
+    <span class="label">The Fisher Equation</span>
+    <span class="highlight">Real Rate</span> = Nominal Rate − Expected Inflation
+    <br><span style="font-size:0.85rem; opacity:0.7;">r = i − π</span>
+  </div>
+
+  <h3 style="margin-top:36px; font-family: var(--font-display); color: var(--navy);">Fisher Equation Calculator</h3>
+  <p style="color: var(--text-muted); margin-bottom: 8px;">Slide the values to see how inflation erodes your returns.</p>
+  <div class="calc-container">
+    <div class="calc-row">
+      <span class="calc-label">Nominal Interest Rate (i)</span>
+      <input type="range" class="calc-slider" id="fisherNom" min="0" max="20" step="0.25" value="6">
+      <span class="calc-value" id="fisherNomVal">6.00%</span>
+    </div>
+    <div class="calc-row">
+      <span class="calc-label">Expected Inflation (π)</span>
+      <input type="range" class="calc-slider" id="fisherInf" min="-2" max="15" step="0.25" value="3">
+      <span class="calc-value" id="fisherInfVal">3.00%</span>
+    </div>
+    <div class="calc-result">
+      <div class="steps" id="fisherFormula">r = 6.00% − 3.00%</div>
+      <div class="big-num" id="fisherResult">3.00%</div>
+      <div class="steps" id="fisherExplain">Positive real rate — your money is actually growing</div>
+    </div>
+  </div>
+
+  <div class="concept-box mt-3" style="border-left-color: var(--red);">
+    <h4>What if inflation is higher than the nominal rate?</h4>
+    <p style="color:var(--text-muted); font-size:0.92rem;">You get a <strong>negative real interest rate</strong>. Your money literally loses purchasing power even while it's earning interest. This happened in 2021–2022 when inflation hit 9% but savings accounts paid under 1%. Slide the inflation above the nominal rate in the calculator to see it.</p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================================ -->
+<!-- 4.3 DEFINITION, MEASUREMENT, FUNCTIONS OF MONEY -->
+<!-- ============================================ -->
+<section class="section fade-in" id="money">
+  <span class="section-badge badge-purple">Unit 4.3</span>
+  <h2>What Is Money?</h2>
+  <p class="section-desc">Money isn't just cash. It's anything widely accepted as payment. Understand its three functions and how we measure it.</p>
+
+  <div class="card-grid" style="grid-template-columns: repeat(3, 1fr);">
+    <div class="card" style="border-top: 3px solid var(--teal);">
+      <h3>Medium of Exchange</h3>
+      <p>You use it to buy stuff. Without money, you'd need a "double coincidence of wants" — finding someone who has what you want AND wants what you have. Try buying lunch with a poem.</p>
+    </div>
+    <div class="card" style="border-top: 3px solid var(--gold);">
+      <h3>Unit of Account</h3>
+      <p>A common measuring stick for value. Instead of saying "this phone costs 47 chickens," we say it costs $1,200. Everything is priced in the same unit.</p>
+    </div>
+    <div class="card" style="border-top: 3px solid var(--purple);">
+      <h3>Store of Value</h3>
+      <p>You can save it and spend it later. A $20 bill still works next year (inflation aside). Try storing value in bananas — they'll be worthless by Friday.</p>
+    </div>
+  </div>
+
+  <h3 style="margin-top:36px; font-family: var(--font-display); color: var(--navy);">M1 vs. M2 Sorting Game</h3>
+  <p style="color: var(--text-muted); margin-bottom: 8px;">Click an item, then click the correct bucket. M1 is the most liquid (spendable right now). M2 includes M1 plus near-money.</p>
+
+  <div class="sort-game" id="m1m2Game">
+    <div class="sort-items" id="sortItems"></div>
+    <div class="sort-buckets">
+      <div class="sort-bucket" id="bucketM1" onclick="placeSortItem('M1')">
+        <h4 style="color: var(--teal);">M1 (Most Liquid)</h4>
+        <p style="font-size:0.8rem; color:var(--text-muted);">Cash, checking accounts, traveler's checks</p>
+        <div id="bucketM1Items"></div>
+      </div>
+      <div class="sort-bucket" id="bucketM2" onclick="placeSortItem('M2only')">
+        <h4 style="color: var(--gold);">M2 Only (Near-Money)</h4>
+        <p style="font-size:0.8rem; color:var(--text-muted);">Savings, money market, small CDs</p>
+        <div id="bucketM2Items"></div>
+      </div>
+    </div>
+    <div class="sort-score" id="sortScore"></div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================================ -->
+<!-- 4.4 BANKING & MONEY SUPPLY -->
+<!-- ============================================ -->
+<section class="section fade-in" id="banking">
+  <span class="section-badge badge-green">Unit 4.4</span>
+  <h2>Banking &amp; the Money Multiplier</h2>
+  <p class="section-desc">Banks don't just store your money — they lend most of it out, creating new money in the process. This is how the money supply expands.</p>
+
+  <div class="grid-2">
+    <div class="concept-box">
+      <h4>Fractional Reserve Banking</h4>
+      <p style="color:var(--text-muted); font-size:0.92rem;">Banks only keep a fraction of deposits as reserves and lend the rest. If the reserve ratio is 10%, a $1,000 deposit means $100 in reserves and $900 lent out. That $900 gets deposited elsewhere and the cycle continues.</p>
+    </div>
+    <div class="concept-box gold">
+      <h4>Excess Reserves</h4>
+      <p style="color:var(--text-muted); font-size:0.92rem;">The amount above required reserves that banks CAN lend. More excess reserves = more potential lending = more money creation. In 2026, the Fed's required reserve ratio is <strong>0%</strong>, so technically all deposits are excess reserves.</p>
+    </div>
+  </div>
+
+  <div class="formula-box">
+    <span class="label">The Money Multiplier</span>
+    Money Multiplier = <span class="highlight">1 / Reserve Ratio</span>
+    <br>
+    <span style="font-size:0.85rem; opacity:0.7;">Maximum change in money supply = Initial deposit × (1 / RR)</span>
+  </div>
+
+  <h3 style="margin-top:36px; font-family: var(--font-display); color: var(--navy);">Money Multiplier Calculator</h3>
+  <p style="color: var(--text-muted); margin-bottom: 8px;">See how a single deposit ripples through the banking system.</p>
+  <div class="calc-container">
+    <div class="calc-row">
+      <span class="calc-label">Initial Deposit</span>
+      <input type="range" class="calc-slider" id="mmDeposit" min="100" max="10000" step="100" value="1000">
+      <span class="calc-value" id="mmDepositVal">$1,000</span>
+    </div>
+    <div class="calc-row">
+      <span class="calc-label">Reserve Ratio (RR)</span>
+      <input type="range" class="calc-slider" id="mmRR" min="1" max="50" step="1" value="10">
+      <span class="calc-value" id="mmRRVal">10%</span>
+    </div>
+    <div class="calc-result">
+      <div class="steps" id="mmFormula">Multiplier = 1 / 0.10 = 10</div>
+      <div class="big-num" id="mmResult">$10,000</div>
+      <div class="steps" id="mmExplain">$1,000 deposit creates up to $10,000 in total money supply</div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:36px; font-family: var(--font-display); color: var(--navy);">Deposit Expansion Visualization</h3>
+  <p style="color: var(--text-muted); margin-bottom: 8px;">Watch how money multiplies through the banking system round by round.</p>
+  <div class="card" style="padding: 24px;">
+    <div class="ripple-chain" id="depositChain"></div>
+    <button class="graph-btn" onclick="animateDeposits()" style="margin-top: 16px;">Animate Expansion</button>
+    <button class="graph-btn reset" onclick="resetDeposits()" style="margin-top: 16px;">Reset</button>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================================ -->
+<!-- 4.5 THE MONEY MARKET -->
+<!-- ============================================ -->
+<section class="section fade-in" id="moneymarket">
+  <span class="section-badge badge-teal">Unit 4.5</span>
+  <h2>The Money Market</h2>
+  <p class="section-desc">Supply and demand for money determines the nominal interest rate. The Fed controls supply; people and businesses drive demand.</p>
+
+  <div class="grid-2">
+    <div class="concept-box">
+      <h4>Money Demand (MD)</h4>
+      <p style="color:var(--text-muted); font-size:0.92rem;">Downward sloping. When interest rates are low, the opportunity cost of holding cash is low, so people hold more money. Three motives: <strong>transactions</strong> (daily spending), <strong>precautionary</strong> (emergencies), <strong>speculative</strong> (waiting for investment opportunities).</p>
+    </div>
+    <div class="concept-box gold">
+      <h4>Money Supply (MS)</h4>
+      <p style="color:var(--text-muted); font-size:0.92rem;">Vertical line — the Fed sets it and it doesn't change with interest rates. The Fed shifts MS through open market operations, the discount rate, and reserve requirements.</p>
+    </div>
+  </div>
+
+  <h3 style="margin-top:36px; font-family: var(--font-display); color: var(--navy);">Interactive Money Market Graph</h3>
+  <p style="color: var(--text-muted); margin-bottom: 8px;">Click the buttons to shift curves and see how equilibrium changes.</p>
+  <div class="graph-container">
+    <div class="graph-canvas-wrap">
+      <canvas id="moneyMarketCanvas" width="500" height="400"></canvas>
+    </div>
+    <div class="graph-buttons">
+      <button class="graph-btn" onclick="shiftMM('ms_right')">MS → (Fed buys bonds)</button>
+      <button class="graph-btn" onclick="shiftMM('ms_left')">← MS (Fed sells bonds)</button>
+      <button class="graph-btn" onclick="shiftMM('md_right')">MD → (GDP ↑)</button>
+      <button class="graph-btn" onclick="shiftMM('md_left')">← MD (GDP ↓)</button>
+      <button class="graph-btn reset" onclick="shiftMM('reset')">Reset</button>
+    </div>
+    <div class="graph-explain" id="mmGraphExplain">Click a button above to see how the money market responds to changes in policy or the economy.</div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================================ -->
+<!-- 4.6 MONETARY POLICY -->
+<!-- ============================================ -->
+<section class="section fade-in" id="monetary">
+  <span class="section-badge badge-red">Unit 4.6</span>
+  <h2>Monetary Policy</h2>
+  <p class="section-desc">The Federal Reserve's playbook for managing the economy. Know the three tools and the transmission mechanism inside out.</p>
+
+  <div class="card-grid" style="grid-template-columns: repeat(3, 1fr);">
+    <div class="card" style="border-top: 3px solid var(--teal);">
+      <h3>Open Market Operations</h3>
+      <p>The Fed's <strong>most used tool</strong>. Buying bonds injects money (expansionary). Selling bonds drains money (contractionary). The FOMC decides this at each meeting.</p>
+    </div>
+    <div class="card" style="border-top: 3px solid var(--gold);">
+      <h3>Discount Rate</h3>
+      <p>The interest rate the Fed charges banks for emergency loans. Lowering it = cheaper borrowing for banks = more lending. Raising it = opposite. Rarely used but powerful signal.</p>
+    </div>
+    <div class="card" style="border-top: 3px solid var(--red);">
+      <h3>Reserve Requirements</h3>
+      <p>The % of deposits banks must hold. Lower RR = more lending. Higher RR = less lending. Currently set at <strong>0%</strong> since March 2020. The "nuclear option" — almost never changed.</p>
+    </div>
+  </div>
+
+  <h3 style="margin-top:36px; font-family: var(--font-display); color: var(--navy);">Monetary Policy Transmission Mechanism</h3>
+  <p style="color: var(--text-muted); margin-bottom: 8px;">Click a policy type to see the chain reaction through the economy.</p>
+
+  <div class="tabs">
+    <button class="tab active" onclick="showRipple('expansionary')">Expansionary (Easy Money)</button>
+    <button class="tab" onclick="showRipple('contractionary')">Contractionary (Tight Money)</button>
+  </div>
+
+  <div class="card" style="padding: 24px;" id="rippleCard">
+    <div class="ripple-chain" id="policyChain"></div>
+    <button class="graph-btn" onclick="animatePolicy()" style="margin-top: 16px;" id="animatePolicyBtn">Animate Chain</button>
+  </div>
+
+  <h3 style="margin-top:36px; font-family: var(--font-display); color: var(--navy);">Scenario Cards: Expansionary or Contractionary?</h3>
+  <p style="color: var(--text-muted); margin-bottom: 8px;">Click each scenario to reveal what the Fed would do.</p>
+
+  <div class="scenario-grid" id="policyScenarios">
+    <div class="scenario-card" onclick="revealScenario(this)">
+      <div class="icon">📉</div>
+      <div class="event">Unemployment rises to 8% and GDP is falling</div>
+      <div class="result"><strong>Expansionary policy.</strong> The Fed buys bonds, lowers the discount rate. This increases MS → lowers interest rates → increases investment & consumption → increases AD → increases real GDP and employment.</div>
+    </div>
+    <div class="scenario-card" onclick="revealScenario(this)">
+      <div class="icon">🔥</div>
+      <div class="event">Inflation surges to 7% with an overheating economy</div>
+      <div class="result"><strong>Contractionary policy.</strong> The Fed sells bonds, raises rates. This decreases MS → raises interest rates → decreases investment & consumption → decreases AD → reduces inflationary pressure.</div>
+    </div>
+    <div class="scenario-card" onclick="revealScenario(this)">
+      <div class="icon">🏠</div>
+      <div class="event">Housing prices are skyrocketing and consumer spending is excessive</div>
+      <div class="result"><strong>Contractionary.</strong> The Fed raises rates to cool borrowing. Higher mortgage rates → fewer home purchases → less construction spending → AD decreases. This was exactly what happened in 2022-2023.</div>
+    </div>
+    <div class="scenario-card" onclick="revealScenario(this)">
+      <div class="icon">🏭</div>
+      <div class="event">A recession hits — businesses are laying off workers and cutting investment</div>
+      <div class="result"><strong>Expansionary.</strong> The Fed lowers rates to stimulate borrowing. Cheaper loans → more business investment → more hiring → more consumer spending → AD increases. This was the 2020 COVID response.</div>
+    </div>
+    <div class="scenario-card" onclick="revealScenario(this)">
+      <div class="icon">💵</div>
+      <div class="event">The dollar is weakening and import prices are rising</div>
+      <div class="result"><strong>Contractionary.</strong> Raising interest rates attracts foreign investment → demand for dollars increases → dollar appreciates → imports become cheaper → inflationary pressure eases.</div>
+    </div>
+    <div class="scenario-card" onclick="revealScenario(this)">
+      <div class="icon">📊</div>
+      <div class="event">GDP growth stalls at 0.5% with stable 2% inflation</div>
+      <div class="result"><strong>Expansionary.</strong> With inflation under control, the Fed has room to cut rates and stimulate growth. Lower rates encourage investment without risking a price spiral.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================================ -->
+<!-- 4.7 THE LOANABLE FUNDS MARKET -->
+<!-- ============================================ -->
+<section class="section fade-in" id="loanable">
+  <span class="section-badge badge-gold">Unit 4.7</span>
+  <h2>The Loanable Funds Market</h2>
+  <p class="section-desc">Where savers meet borrowers. The real interest rate is determined here, and it drives investment in the economy.</p>
+
+  <div class="grid-2">
+    <div class="concept-box">
+      <h4>Demand for Loanable Funds (DLF)</h4>
+      <p style="color:var(--text-muted); font-size:0.92rem;">Downward sloping. Borrowers (businesses, government) want more loans when real interest rates are low. Think of it as the "demand to borrow."</p>
+    </div>
+    <div class="concept-box gold">
+      <h4>Supply of Loanable Funds (SLF)</h4>
+      <p style="color:var(--text-muted); font-size:0.92rem;">Upward sloping. Savers supply more funds when real interest rates are high (better return on saving). Your savings account and retirement contributions feed this supply.</p>
+    </div>
+  </div>
+
+  <h3 style="margin-top:36px; font-family: var(--font-display); color: var(--navy);">Interactive Loanable Funds Graph</h3>
+  <p style="color: var(--text-muted); margin-bottom: 8px;">Explore how government borrowing, saving incentives, and business confidence shift the market.</p>
+  <div class="graph-container">
+    <div class="graph-canvas-wrap">
+      <canvas id="loanableCanvas" width="500" height="400"></canvas>
+    </div>
+    <div class="graph-buttons">
+      <button class="graph-btn" onclick="shiftLF('dlf_right')">DLF → (Gov't deficit ↑)</button>
+      <button class="graph-btn" onclick="shiftLF('dlf_left')">← DLF (Less borrowing)</button>
+      <button class="graph-btn" onclick="shiftLF('slf_right')">SLF → (More saving)</button>
+      <button class="graph-btn" onclick="shiftLF('slf_left')">← SLF (Less saving)</button>
+      <button class="graph-btn reset" onclick="shiftLF('reset')">Reset</button>
+    </div>
+    <div class="graph-explain" id="lfGraphExplain">Click a button to see how the loanable funds market responds. Pay attention to what happens to the real interest rate and quantity of funds.</div>
+  </div>
+
+  <div class="concept-box red mt-3">
+    <h4>Crowding Out Effect</h4>
+    <p style="color:var(--text-muted); font-size:0.92rem;">When the government borrows heavily (deficit spending), DLF shifts right → real interest rate rises → private investment decreases. Government borrowing "crowds out" private borrowing. This is a key critique of fiscal policy and a common AP exam question. Try clicking "DLF → (Gov't deficit ↑)" above to visualize it.</p>
+  </div>
+
+  <h3 style="margin-top:36px; font-family: var(--font-display); color: var(--navy);">Money Market vs. Loanable Funds — Know the Difference</h3>
+  <div class="card mt-2" style="overflow-x: auto;">
+    <table style="width:100%; border-collapse: collapse; font-size: 0.9rem;">
+      <thead>
+        <tr style="border-bottom: 2px solid var(--navy);">
+          <th style="text-align:left; padding: 12px; font-family: var(--font-display);">Feature</th>
+          <th style="text-align:left; padding: 12px; color: var(--teal);">Money Market</th>
+          <th style="text-align:left; padding: 12px; color: var(--gold);">Loanable Funds</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom: 1px solid var(--border);">
+          <td style="padding: 10px 12px; font-weight: 600;">Y-Axis</td>
+          <td style="padding: 10px 12px;">Nominal interest rate</td>
+          <td style="padding: 10px 12px;">Real interest rate</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--border);">
+          <td style="padding: 10px 12px; font-weight: 600;">X-Axis</td>
+          <td style="padding: 10px 12px;">Quantity of money</td>
+          <td style="padding: 10px 12px;">Quantity of loanable funds</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--border);">
+          <td style="padding: 10px 12px; font-weight: 600;">Supply</td>
+          <td style="padding: 10px 12px;">Vertical (set by Fed)</td>
+          <td style="padding: 10px 12px;">Upward sloping (savers)</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--border);">
+          <td style="padding: 10px 12px; font-weight: 600;">Demand</td>
+          <td style="padding: 10px 12px;">Downward sloping (Keynes)</td>
+          <td style="padding: 10px 12px;">Downward sloping (borrowers)</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--border);">
+          <td style="padding: 10px 12px; font-weight: 600;">Controlled By</td>
+          <td style="padding: 10px 12px;">The Fed (monetary policy)</td>
+          <td style="padding: 10px 12px;">Savers & borrowers (market)</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px 12px; font-weight: 600;">Time Horizon</td>
+          <td style="padding: 10px 12px;">Short-run</td>
+          <td style="padding: 10px 12px;">Long-run</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================================ -->
+<!-- VOCABULARY MATCHING GAME -->
+<!-- ============================================ -->
+<section class="section fade-in" id="matching">
+  <span class="section-badge badge-purple">Review Game</span>
+  <h2>Vocabulary Matching</h2>
+  <p class="section-desc">Match each term to its definition. Click a term on the left, then click its match on the right.</p>
+
+  <div class="tabs" id="matchTabs"></div>
+  <div id="matchGameArea"></div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================================ -->
+<!-- FLASHCARDS -->
+<!-- ============================================ -->
+<section class="section fade-in" id="flashcards">
+  <span class="section-badge badge-teal">Study Tool</span>
+  <h2>Flashcards</h2>
+  <p class="section-desc">Click to flip. Use the arrows to navigate. Filter by unit.</p>
+
+  <div class="flashcard-filter" id="flashcardFilter"></div>
+
+  <div class="flashcard-container">
+    <div class="flashcard" id="flashcard" onclick="flipCard()">
+      <div class="flashcard-face flashcard-front">
+        <span class="unit-tag" id="fcUnitTag">Unit 4.1</span>
+        <span class="term" id="fcTerm">Loading...</span>
+      </div>
+      <div class="flashcard-face flashcard-back">
+        <span class="definition" id="fcDef">Loading...</span>
+      </div>
+    </div>
+  </div>
+  <div class="flashcard-nav">
+    <button onclick="prevCard()">← Previous</button>
+    <span class="flashcard-counter" id="fcCounter">1 / 30</span>
+    <button onclick="nextCard()">Next →</button>
+  </div>
+  <p class="text-center mt-2" style="color: var(--text-muted); font-size: 0.85rem;">Press ← → arrow keys to navigate, Space to flip</p>
+</section>
+
+<hr class="divider">
+
+<!-- ============================================ -->
+<!-- QUIZ -->
+<!-- ============================================ -->
+<section class="section fade-in" id="quiz">
+  <span class="section-badge badge-red">AP Practice</span>
+  <h2>Unit 4 Practice Quiz</h2>
+  <p class="section-desc">25 AP-style multiple choice questions covering all subunits. Click an answer to lock it in — no take-backs, just like the real exam.</p>
+
+  <div id="quizContainer"></div>
+
+  <div class="quiz-scoreboard" id="quizScoreboard">
+    <div class="score-big" id="quizScoreBig">0/25</div>
+    <div class="score-label" id="quizScoreLabel">Keep studying!</div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>AP Macroeconomics Unit 4: The Financial Sector — Interactive Study Guide</p>
+  <p style="margin-top: 4px; font-size: 0.8rem;">Mr. Bassin's Class · March 2026</p>
+</footer>
+
+<script>
+// ===== NAVIGATION =====
+function scrollToSection(id) {
+  const el = document.getElementById(id);
+  if (el) {
+    const navHeight = 70;
+    const top = el.getBoundingClientRect().top + window.pageYOffset - navHeight;
+    window.scrollTo({ top, behavior: 'smooth' });
+  }
+}
+
+// Progress bar & active nav
+window.addEventListener('scroll', () => {
+  const scrollTop = window.pageYOffset;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  document.getElementById('progressBar').style.width = (scrollTop / docHeight * 100) + '%';
+
+  const sections = ['assets','rates','money','banking','moneymarket','monetary','loanable','matching','flashcards','quiz'];
+  let current = '';
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top < 150) current = id;
+  });
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.classList.toggle('active', a.getAttribute('data-target') === current);
+  });
+});
+
+// Fade-in on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ===== 4.1 TIME VALUE CALCULATOR =====
+function updateTVM() {
+  const rate = parseFloat(document.getElementById('tvmRate').value);
+  const years = parseInt(document.getElementById('tvmYears').value);
+  document.getElementById('tvmRateVal').textContent = rate.toFixed(1) + '%';
+  document.getElementById('tvmYearsVal').textContent = years;
+  const result = 1000 * Math.pow(1 + rate / 100, years);
+  const gain = result - 1000;
+  document.getElementById('tvmFormula').textContent = `$1,000 × (1 + ${(rate/100).toFixed(4)})^${years}`;
+  document.getElementById('tvmResult').textContent = '$' + result.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+  document.getElementById('tvmGain').textContent = `You earned $${gain.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})} in interest`;
+}
+document.getElementById('tvmRate').addEventListener('input', updateTVM);
+document.getElementById('tvmYears').addEventListener('input', updateTVM);
+
+// ===== 4.2 FISHER EQUATION CALCULATOR =====
+function updateFisher() {
+  const nom = parseFloat(document.getElementById('fisherNom').value);
+  const inf = parseFloat(document.getElementById('fisherInf').value);
+  document.getElementById('fisherNomVal').textContent = nom.toFixed(2) + '%';
+  document.getElementById('fisherInfVal').textContent = inf.toFixed(2) + '%';
+  const real = nom - inf;
+  document.getElementById('fisherFormula').textContent = `r = ${nom.toFixed(2)}% − ${inf.toFixed(2)}%`;
+  document.getElementById('fisherResult').textContent = real.toFixed(2) + '%';
+  let explain = '';
+  if (real > 0) explain = 'Positive real rate — your money is actually growing in purchasing power';
+  else if (real === 0) explain = 'Zero real rate — you\'re just keeping up with inflation';
+  else explain = 'Negative real rate — inflation is eating your returns! You\'re losing purchasing power';
+  document.getElementById('fisherExplain').textContent = explain;
+  document.getElementById('fisherResult').style.color = real >= 0 ? '#F59E0B' : '#EF4444';
+}
+document.getElementById('fisherNom').addEventListener('input', updateFisher);
+document.getElementById('fisherInf').addEventListener('input', updateFisher);
+
+// ===== 4.3 M1/M2 SORTING GAME =====
+const sortData = [
+  { name: 'Cash in your wallet', bucket: 'M1' },
+  { name: 'Checking account', bucket: 'M1' },
+  { name: "Traveler's checks", bucket: 'M1' },
+  { name: 'Coins in a jar', bucket: 'M1' },
+  { name: 'Debit card balance', bucket: 'M1' },
+  { name: 'Savings account', bucket: 'M2only' },
+  { name: 'Money market fund', bucket: 'M2only' },
+  { name: 'Small CD (under $100k)', bucket: 'M2only' },
+  { name: 'Money market deposit account', bucket: 'M2only' },
+  { name: 'Time deposits', bucket: 'M2only' },
+];
+let selectedSortItem = null;
+let sortCorrect = 0;
+let sortTotal = 0;
+
+function initSortGame() {
+  const container = document.getElementById('sortItems');
+  const shuffled = [...sortData].sort(() => Math.random() - 0.5);
+  container.innerHTML = '';
+  shuffled.forEach((item, i) => {
+    const el = document.createElement('div');
+    el.className = 'sort-item';
+    el.textContent = item.name;
+    el.dataset.bucket = item.bucket;
+    el.dataset.index = i;
+    el.onclick = () => selectSortItem(el);
+    container.appendChild(el);
+  });
+  sortCorrect = 0; sortTotal = 0;
+  document.getElementById('sortScore').textContent = '';
+  document.getElementById('bucketM1Items').innerHTML = '';
+  document.getElementById('bucketM2Items').innerHTML = '';
+}
+
+function selectSortItem(el) {
+  if (el.classList.contains('correct')) return;
+  document.querySelectorAll('.sort-item.selected').forEach(s => s.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedSortItem = el;
+  document.querySelectorAll('.sort-bucket').forEach(b => b.classList.add('active'));
+}
+
+function placeSortItem(bucket) {
+  if (!selectedSortItem) return;
+  sortTotal++;
+  if (selectedSortItem.dataset.bucket === bucket) {
+    sortCorrect++;
+    selectedSortItem.classList.remove('selected');
+    selectedSortItem.classList.add('correct');
+    const placed = document.createElement('span');
+    placed.className = 'placed';
+    placed.textContent = selectedSortItem.textContent;
+    document.getElementById(bucket === 'M1' ? 'bucketM1Items' : 'bucketM2Items').appendChild(placed);
+    selectedSortItem.style.opacity = '0.4';
+    selectedSortItem.style.pointerEvents = 'none';
+  } else {
+    selectedSortItem.classList.remove('selected');
+    selectedSortItem.classList.add('wrong');
+    setTimeout(() => selectedSortItem.classList.remove('wrong'), 400);
+  }
+  selectedSortItem = null;
+  document.querySelectorAll('.sort-bucket').forEach(b => b.classList.remove('active'));
+  document.getElementById('sortScore').textContent = `Score: ${sortCorrect}/${sortTotal}`;
+  if (sortCorrect === sortData.length) {
+    document.getElementById('sortScore').textContent = `Perfect! ${sortCorrect}/${sortCorrect} — You know your money supply!`;
+    document.getElementById('sortScore').style.color = 'var(--green)';
+  }
+}
+initSortGame();
+
+// ===== 4.4 MONEY MULTIPLIER CALCULATOR =====
+function updateMM() {
+  const deposit = parseInt(document.getElementById('mmDeposit').value);
+  const rr = parseInt(document.getElementById('mmRR').value);
+  document.getElementById('mmDepositVal').textContent = '$' + deposit.toLocaleString();
+  document.getElementById('mmRRVal').textContent = rr + '%';
+  const mult = 1 / (rr / 100);
+  const total = deposit * mult;
+  document.getElementById('mmFormula').textContent = `Multiplier = 1 / ${(rr/100).toFixed(2)} = ${mult.toFixed(1)}`;
+  document.getElementById('mmResult').textContent = '$' + total.toLocaleString('en-US', {maximumFractionDigits: 0});
+  document.getElementById('mmExplain').textContent = `$${deposit.toLocaleString()} deposit creates up to $${total.toLocaleString('en-US', {maximumFractionDigits: 0})} in total money supply`;
+  buildDepositChain(deposit, rr / 100);
+}
+document.getElementById('mmDeposit').addEventListener('input', updateMM);
+document.getElementById('mmRR').addEventListener('input', updateMM);
+
+function buildDepositChain(deposit, rr) {
+  const chain = document.getElementById('depositChain');
+  chain.innerHTML = '';
+  const colors = ['var(--teal)','var(--gold)','var(--purple)','#E67E22','var(--red)','#2ECC71','#3498DB','#9B59B6'];
+  let amount = deposit;
+  for (let i = 0; i < 7; i++) {
+    if (i > 0) {
+      const arrow = document.createElement('span');
+      arrow.className = 'ripple-arrow';
+      arrow.textContent = '→';
+      arrow.id = 'depArrow' + i;
+      chain.appendChild(arrow);
+    }
+    const step = document.createElement('div');
+    step.className = 'ripple-step';
+    step.id = 'depStep' + i;
+    step.style.background = colors[i % colors.length];
+    step.style.color = 'white';
+    const lent = amount * (1 - rr);
+    step.innerHTML = `<strong>Round ${i + 1}</strong><br>Deposit: $${Math.round(amount).toLocaleString()}<br>Lent: $${Math.round(lent).toLocaleString()}`;
+    chain.appendChild(step);
+    amount = lent;
+  }
+  const dots = document.createElement('span');
+  dots.className = 'ripple-arrow';
+  dots.textContent = '...';
+  dots.id = 'depDots';
+  chain.appendChild(dots);
+}
+
+function animateDeposits() {
+  for (let i = 0; i < 7; i++) {
+    setTimeout(() => {
+      const step = document.getElementById('depStep' + i);
+      if (step) step.classList.add('visible');
+      if (i > 0) {
+        const arrow = document.getElementById('depArrow' + i);
+        if (arrow) arrow.classList.add('visible');
+      }
+    }, i * 400);
+  }
+  setTimeout(() => {
+    const dots = document.getElementById('depDots');
+    if (dots) dots.classList.add('visible');
+  }, 7 * 400);
+}
+
+function resetDeposits() {
+  document.querySelectorAll('.ripple-step, .ripple-arrow').forEach(el => el.classList.remove('visible'));
+}
+updateMM();
+
+// ===== 4.5 MONEY MARKET GRAPH =====
+let mmState = { msShift: 0, mdShift: 0 };
+
+function drawMoneyMarket() {
+  const canvas = document.getElementById('moneyMarketCanvas');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  const pad = { top: 40, right: 40, bottom: 50, left: 60 };
+  ctx.clearRect(0, 0, W, H);
+
+  // Axes
+  ctx.strokeStyle = '#1A1A2E'; ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(pad.left, pad.top); ctx.lineTo(pad.left, H - pad.bottom); ctx.lineTo(W - pad.right, H - pad.bottom); ctx.stroke();
+
+  // Labels
+  ctx.fillStyle = '#1A1A2E'; ctx.font = '600 13px DM Sans'; ctx.textAlign = 'center';
+  ctx.fillText('Quantity of Money', (pad.left + W - pad.right) / 2, H - 10);
+  ctx.save(); ctx.translate(18, (pad.top + H - pad.bottom) / 2); ctx.rotate(-Math.PI / 2); ctx.fillText('Nominal Interest Rate', 0, 0); ctx.restore();
+
+  const gW = W - pad.left - pad.right, gH = H - pad.top - pad.bottom;
+  const cx = pad.left + gW * 0.5, cy = pad.top + gH * 0.45;
+
+  // MS (vertical line)
+  const msX = cx + mmState.msShift * 40;
+  ctx.strokeStyle = '#0D9488'; ctx.lineWidth = 3; ctx.setLineDash([]);
+  ctx.beginPath(); ctx.moveTo(msX, pad.top + 10); ctx.lineTo(msX, H - pad.bottom - 10); ctx.stroke();
+  ctx.fillStyle = '#0D9488'; ctx.font = '700 14px DM Sans';
+  ctx.fillText(mmState.msShift > 0 ? "MS'" : mmState.msShift < 0 ? "MS'" : 'MS', msX, pad.top + 5);
+
+  // Original MS if shifted
+  if (mmState.msShift !== 0) {
+    ctx.strokeStyle = 'rgba(13,148,136,0.3)'; ctx.lineWidth = 2; ctx.setLineDash([6, 4]);
+    ctx.beginPath(); ctx.moveTo(cx, pad.top + 10); ctx.lineTo(cx, H - pad.bottom - 10); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = 'rgba(13,148,136,0.4)'; ctx.font = '600 12px DM Sans';
+    ctx.fillText('MS', cx, pad.top + 5);
+  }
+
+  // MD (downward sloping)
+  const mdStartY = pad.top + 20 + mmState.mdShift * -30;
+  const mdEndY = H - pad.bottom - 20 + mmState.mdShift * -30;
+  const mdStartX = pad.left + 20 + mmState.mdShift * 40;
+  const mdEndX = W - pad.right - 20 + mmState.mdShift * 40;
+  ctx.strokeStyle = '#F59E0B'; ctx.lineWidth = 3;
+  ctx.beginPath(); ctx.moveTo(mdStartX, mdStartY); ctx.lineTo(mdEndX, mdEndY); ctx.stroke();
+  ctx.fillStyle = '#F59E0B'; ctx.font = '700 14px DM Sans';
+  ctx.fillText(mmState.mdShift !== 0 ? "MD'" : 'MD', mdEndX + 5, mdEndY - 5);
+
+  // Original MD if shifted
+  if (mmState.mdShift !== 0) {
+    ctx.strokeStyle = 'rgba(245,158,11,0.3)'; ctx.lineWidth = 2; ctx.setLineDash([6, 4]);
+    ctx.beginPath();
+    ctx.moveTo(pad.left + 20, pad.top + 20);
+    ctx.lineTo(W - pad.right - 20, H - pad.bottom - 20);
+    ctx.stroke(); ctx.setLineDash([]);
+    ctx.fillStyle = 'rgba(245,158,11,0.4)'; ctx.font = '600 12px DM Sans';
+    ctx.fillText('MD', W - pad.right - 15, H - pad.bottom - 25);
+  }
+
+  // Equilibrium point
+  const t = (msX - mdStartX) / (mdEndX - mdStartX);
+  const eqY = mdStartY + t * (mdEndY - mdStartY);
+  ctx.fillStyle = '#EF4444'; ctx.beginPath(); ctx.arc(msX, eqY, 6, 0, Math.PI * 2); ctx.fill();
+
+  // Dashed lines to axes
+  ctx.strokeStyle = 'rgba(239,68,68,0.4)'; ctx.lineWidth = 1; ctx.setLineDash([4, 4]);
+  ctx.beginPath(); ctx.moveTo(msX, eqY); ctx.lineTo(pad.left, eqY); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(msX, eqY); ctx.lineTo(msX, H - pad.bottom); ctx.stroke();
+  ctx.setLineDash([]);
+
+  ctx.fillStyle = '#EF4444'; ctx.font = '700 12px DM Sans'; ctx.textAlign = 'right';
+  ctx.fillText('i*', pad.left - 8, eqY + 4);
+  ctx.textAlign = 'center';
+  ctx.fillText('Q*', msX, H - pad.bottom + 16);
+}
+
+function shiftMM(action) {
+  if (action === 'reset') { mmState = { msShift: 0, mdShift: 0 }; }
+  else if (action === 'ms_right') { mmState.msShift = 1; }
+  else if (action === 'ms_left') { mmState.msShift = -1; }
+  else if (action === 'md_right') { mmState.mdShift = 1; }
+  else if (action === 'md_left') { mmState.mdShift = -1; }
+  drawMoneyMarket();
+  const explains = {
+    'ms_right': 'The Fed buys bonds → money supply increases → interest rate falls → more investment → AD increases. This is expansionary monetary policy.',
+    'ms_left': 'The Fed sells bonds → money supply decreases → interest rate rises → less investment → AD decreases. This is contractionary monetary policy.',
+    'md_right': 'GDP increases or price level rises → people need more money for transactions → money demand increases → interest rate rises.',
+    'md_left': 'GDP falls or price level drops → people need less money → money demand decreases → interest rate falls.',
+    'reset': 'Click a button to see how the money market responds to changes in policy or the economy.'
+  };
+  document.getElementById('mmGraphExplain').textContent = explains[action] || '';
+}
+drawMoneyMarket();
+
+// ===== 4.6 MONETARY POLICY TRANSMISSION =====
+let currentPolicyType = 'expansionary';
+const policyChains = {
+  expansionary: [
+    { text: 'Fed buys bonds', color: 'var(--teal)' },
+    { text: 'Bank reserves ↑', color: 'var(--teal)' },
+    { text: 'Money supply ↑', color: '#2ECC71' },
+    { text: 'Interest rate ↓', color: '#27AE60' },
+    { text: 'Investment ↑', color: 'var(--gold)' },
+    { text: 'AD shifts right', color: '#E67E22' },
+    { text: 'Real GDP ↑', color: '#E74C3C' },
+    { text: 'Unemployment ↓', color: '#C0392B' },
+  ],
+  contractionary: [
+    { text: 'Fed sells bonds', color: 'var(--red)' },
+    { text: 'Bank reserves ↓', color: 'var(--red)' },
+    { text: 'Money supply ↓', color: '#E74C3C' },
+    { text: 'Interest rate ↑', color: '#C0392B' },
+    { text: 'Investment ↓', color: 'var(--gold)' },
+    { text: 'AD shifts left', color: '#E67E22' },
+    { text: 'Real GDP ↓', color: 'var(--teal)' },
+    { text: 'Inflation ↓', color: '#0D9488' },
+  ]
+};
+
+function buildPolicyChain() {
+  const chain = document.getElementById('policyChain');
+  chain.innerHTML = '';
+  const data = policyChains[currentPolicyType];
+  data.forEach((item, i) => {
+    if (i > 0) {
+      const arrow = document.createElement('span');
+      arrow.className = 'ripple-arrow';
+      arrow.textContent = '→';
+      arrow.id = 'polArrow' + i;
+      chain.appendChild(arrow);
+    }
+    const step = document.createElement('div');
+    step.className = 'ripple-step';
+    step.id = 'polStep' + i;
+    step.style.background = item.color;
+    step.style.color = 'white';
+    step.innerHTML = `<strong>${item.text}</strong>`;
+    chain.appendChild(step);
+  });
+}
+
+function showRipple(type) {
+  currentPolicyType = type;
+  document.querySelectorAll('.tabs .tab').forEach((t, i) => t.classList.toggle('active', i === (type === 'expansionary' ? 0 : 1)));
+  buildPolicyChain();
+}
+
+function animatePolicy() {
+  const data = policyChains[currentPolicyType];
+  // Reset
+  data.forEach((_, i) => {
+    const step = document.getElementById('polStep' + i);
+    if (step) step.classList.remove('visible');
+    if (i > 0) { const arrow = document.getElementById('polArrow' + i); if (arrow) arrow.classList.remove('visible'); }
+  });
+  // Animate
+  data.forEach((_, i) => {
+    setTimeout(() => {
+      const step = document.getElementById('polStep' + i);
+      if (step) step.classList.add('visible');
+      if (i > 0) { const arrow = document.getElementById('polArrow' + i); if (arrow) arrow.classList.add('visible'); }
+    }, i * 400);
+  });
+}
+buildPolicyChain();
+
+function revealScenario(el) { el.classList.add('revealed'); }
+
+// ===== 4.7 LOANABLE FUNDS GRAPH =====
+let lfState = { dlfShift: 0, slfShift: 0 };
+
+function drawLoanable() {
+  const canvas = document.getElementById('loanableCanvas');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  const pad = { top: 40, right: 40, bottom: 50, left: 60 };
+  ctx.clearRect(0, 0, W, H);
+
+  ctx.strokeStyle = '#1A1A2E'; ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(pad.left, pad.top); ctx.lineTo(pad.left, H - pad.bottom); ctx.lineTo(W - pad.right, H - pad.bottom); ctx.stroke();
+
+  ctx.fillStyle = '#1A1A2E'; ctx.font = '600 13px DM Sans'; ctx.textAlign = 'center';
+  ctx.fillText('Quantity of Loanable Funds', (pad.left + W - pad.right) / 2, H - 10);
+  ctx.save(); ctx.translate(18, (pad.top + H - pad.bottom) / 2); ctx.rotate(-Math.PI / 2); ctx.fillText('Real Interest Rate', 0, 0); ctx.restore();
+
+  const gW = W - pad.left - pad.right, gH = H - pad.top - pad.bottom;
+
+  // DLF (downward sloping)
+  const dlfShiftX = lfState.dlfShift * 50;
+  ctx.strokeStyle = '#F59E0B'; ctx.lineWidth = 3; ctx.setLineDash([]);
+  ctx.beginPath();
+  ctx.moveTo(pad.left + 30 + dlfShiftX, pad.top + 20);
+  ctx.lineTo(W - pad.right - 30 + dlfShiftX, H - pad.bottom - 20);
+  ctx.stroke();
+  ctx.fillStyle = '#F59E0B'; ctx.font = '700 14px DM Sans';
+  ctx.fillText(lfState.dlfShift !== 0 ? "DLF'" : 'DLF', W - pad.right - 25 + dlfShiftX, H - pad.bottom - 10);
+
+  if (lfState.dlfShift !== 0) {
+    ctx.strokeStyle = 'rgba(245,158,11,0.3)'; ctx.lineWidth = 2; ctx.setLineDash([6, 4]);
+    ctx.beginPath(); ctx.moveTo(pad.left + 30, pad.top + 20); ctx.lineTo(W - pad.right - 30, H - pad.bottom - 20); ctx.stroke(); ctx.setLineDash([]);
+    ctx.fillStyle = 'rgba(245,158,11,0.4)'; ctx.font = '600 12px DM Sans';
+    ctx.fillText('DLF', W - pad.right - 25, H - pad.bottom - 10);
+  }
+
+  // SLF (upward sloping)
+  const slfShiftX = lfState.slfShift * 50;
+  ctx.strokeStyle = '#0D9488'; ctx.lineWidth = 3; ctx.setLineDash([]);
+  ctx.beginPath();
+  ctx.moveTo(pad.left + 30 + slfShiftX, H - pad.bottom - 20);
+  ctx.lineTo(W - pad.right - 30 + slfShiftX, pad.top + 20);
+  ctx.stroke();
+  ctx.fillStyle = '#0D9488'; ctx.font = '700 14px DM Sans';
+  ctx.fillText(lfState.slfShift !== 0 ? "SLF'" : 'SLF', W - pad.right - 25 + slfShiftX, pad.top + 15);
+
+  if (lfState.slfShift !== 0) {
+    ctx.strokeStyle = 'rgba(13,148,136,0.3)'; ctx.lineWidth = 2; ctx.setLineDash([6, 4]);
+    ctx.beginPath(); ctx.moveTo(pad.left + 30, H - pad.bottom - 20); ctx.lineTo(W - pad.right - 30, pad.top + 20); ctx.stroke(); ctx.setLineDash([]);
+    ctx.fillStyle = 'rgba(13,148,136,0.4)'; ctx.font = '600 12px DM Sans';
+    ctx.fillText('SLF', W - pad.right - 25, pad.top + 15);
+  }
+
+  // Equilibrium
+  const dx1 = pad.left + 30 + dlfShiftX, dy1 = pad.top + 20, dx2 = W - pad.right - 30 + dlfShiftX, dy2 = H - pad.bottom - 20;
+  const sx1 = pad.left + 30 + slfShiftX, sy1 = H - pad.bottom - 20, sx2 = W - pad.right - 30 + slfShiftX, sy2 = pad.top + 20;
+
+  const denom = (dx1 - dx2) * (sy1 - sy2) - (dy1 - dy2) * (sx1 - sx2);
+  if (Math.abs(denom) > 0.01) {
+    const t = ((dx1 - sx1) * (sy1 - sy2) - (dy1 - sy1) * (sx1 - sx2)) / denom;
+    const eqX = dx1 + t * (dx2 - dx1);
+    const eqY = dy1 + t * (dy2 - dy1);
+
+    ctx.fillStyle = '#EF4444'; ctx.beginPath(); ctx.arc(eqX, eqY, 6, 0, Math.PI * 2); ctx.fill();
+    ctx.strokeStyle = 'rgba(239,68,68,0.4)'; ctx.lineWidth = 1; ctx.setLineDash([4, 4]);
+    ctx.beginPath(); ctx.moveTo(eqX, eqY); ctx.lineTo(pad.left, eqY); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(eqX, eqY); ctx.lineTo(eqX, H - pad.bottom); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = '#EF4444'; ctx.font = '700 12px DM Sans'; ctx.textAlign = 'right';
+    ctx.fillText('r*', pad.left - 8, eqY + 4);
+    ctx.textAlign = 'center';
+    ctx.fillText('Q*', eqX, H - pad.bottom + 16);
+  }
+}
+
+function shiftLF(action) {
+  if (action === 'reset') { lfState = { dlfShift: 0, slfShift: 0 }; }
+  else if (action === 'dlf_right') { lfState.dlfShift = 1; }
+  else if (action === 'dlf_left') { lfState.dlfShift = -1; }
+  else if (action === 'slf_right') { lfState.slfShift = 1; }
+  else if (action === 'slf_left') { lfState.slfShift = -1; }
+  drawLoanable();
+  const explains = {
+    'dlf_right': 'Government deficit spending increases → more borrowing → DLF shifts right → real interest rate rises → private investment decreases (CROWDING OUT). Quantity of funds increases but the higher rate discourages private borrowers.',
+    'dlf_left': 'Government reduces deficit or businesses are pessimistic → less borrowing → DLF shifts left → real interest rate falls → may encourage some private investment.',
+    'slf_right': 'People save more (maybe due to tax incentives or higher incomes) → SLF shifts right → real interest rate falls → more investment is encouraged → economic growth.',
+    'slf_left': 'People save less (low confidence, high consumption) → SLF shifts left → real interest rate rises → less investment → slower growth.',
+    'reset': 'Click a button to see how the loanable funds market responds. Pay attention to what happens to the real interest rate and quantity of funds.'
+  };
+  document.getElementById('lfGraphExplain').textContent = explains[action] || '';
+}
+drawLoanable();
+
+// ===== VOCABULARY MATCHING GAME =====
+const matchRounds = [
+  { title: 'Round 1: Core Concepts',
+    pairs: [
+      { term: 'Bond', def: 'A loan to a government or corporation that pays fixed interest' },
+      { term: 'Money Multiplier', def: 'The formula 1/RR showing how deposits expand money supply' },
+      { term: 'Federal Funds Rate', def: 'The interest rate banks charge each other for overnight loans' },
+      { term: 'Fiat Money', def: 'Currency with no intrinsic value, backed only by government decree' },
+      { term: 'Liquidity', def: 'How quickly an asset can be converted to cash without losing value' },
+    ]
+  },
+  { title: 'Round 2: Markets & Policy',
+    pairs: [
+      { term: 'Open Market Operations', def: "The Fed buying/selling bonds to change money supply" },
+      { term: 'Crowding Out', def: 'Government borrowing raises rates and reduces private investment' },
+      { term: 'Fisher Equation', def: 'Real rate = Nominal rate minus Expected inflation' },
+      { term: 'Discount Rate', def: 'Interest rate the Fed charges banks for emergency loans' },
+      { term: 'Demand for Money', def: 'Downward-sloping curve showing inverse relationship between interest rate and money held' },
+    ]
+  },
+  { title: 'Round 3: Banking & Assets',
+    pairs: [
+      { term: 'Excess Reserves', def: 'Bank reserves beyond what is required, available for lending' },
+      { term: 'M2', def: 'M1 plus savings, money market funds, and small CDs' },
+      { term: 'FDIC', def: 'Government agency insuring bank deposits up to $250,000' },
+      { term: 'Real Interest Rate', def: 'The rate of return adjusted for inflation' },
+      { term: 'Loanable Funds Market', def: 'Model where real interest rate is set by supply and demand for savings' },
+    ]
+  }
+];
+
+let currentMatchRound = 0;
+let matchSelectedTerm = null;
+let matchScore = 0;
+let matchAttempts = 0;
+
+function initMatchGame() {
+  const tabsEl = document.getElementById('matchTabs');
+  tabsEl.innerHTML = '';
+  matchRounds.forEach((round, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'tab' + (i === 0 ? ' active' : '');
+    btn.textContent = round.title;
+    btn.onclick = () => { currentMatchRound = i; matchScore = 0; matchAttempts = 0; renderMatchRound(); document.querySelectorAll('#matchTabs .tab').forEach((t, j) => t.classList.toggle('active', j === i)); };
+    tabsEl.appendChild(btn);
+  });
+  renderMatchRound();
+}
+
+function renderMatchRound() {
+  const area = document.getElementById('matchGameArea');
+  const round = matchRounds[currentMatchRound];
+  const shuffledDefs = [...round.pairs].sort(() => Math.random() - 0.5);
+
+  area.innerHTML = `
+    <div class="match-grid">
+      <div class="match-col"><h4 style="color:var(--navy)">Terms</h4>${round.pairs.map((p, i) => `<div class="match-item match-term" data-idx="${i}" onclick="selectMatchTerm(this)">${p.term}</div>`).join('')}</div>
+      <div class="match-col"><h4 style="color:var(--teal)">Definitions</h4>${shuffledDefs.map((p, i) => `<div class="match-item match-def" data-term="${p.term}" onclick="selectMatchDef(this)">${p.def}</div>`).join('')}</div>
+    </div>
+    <div class="match-score" id="matchScoreText"></div>`;
+}
+
+function selectMatchTerm(el) {
+  if (el.classList.contains('matched')) return;
+  document.querySelectorAll('.match-term').forEach(t => t.classList.remove('selected'));
+  el.classList.add('selected');
+  matchSelectedTerm = el;
+}
+
+function selectMatchDef(el) {
+  if (!matchSelectedTerm || el.classList.contains('matched')) return;
+  matchAttempts++;
+  const termText = matchSelectedTerm.textContent;
+  const defTermText = el.dataset.term;
+  if (termText === defTermText) {
+    matchScore++;
+    matchSelectedTerm.classList.remove('selected');
+    matchSelectedTerm.classList.add('matched');
+    el.classList.add('matched');
+    matchSelectedTerm = null;
+    const total = matchRounds[currentMatchRound].pairs.length;
+    if (matchScore === total) {
+      document.getElementById('matchScoreText').innerHTML = `<span style="color:var(--green)">Perfect! Matched all ${total} in ${matchAttempts} attempts!</span>`;
+    } else {
+      document.getElementById('matchScoreText').textContent = `${matchScore}/${total} matched`;
+    }
+  } else {
+    el.classList.add('wrong');
+    setTimeout(() => el.classList.remove('wrong'), 400);
+  }
+}
+initMatchGame();
+
+// ===== FLASHCARDS =====
+const allFlashcards = [
+  { unit: '4.1', term: 'Financial Asset', def: 'A claim on future income or a store of value — stocks, bonds, bank deposits, etc. These are the building blocks of the financial system.' },
+  { unit: '4.1', term: 'Bond Price & Interest Rate', def: 'They move in OPPOSITE directions. When interest rates rise, existing bond prices fall (and vice versa). This is because new bonds offer better rates.' },
+  { unit: '4.1', term: 'FDIC Insurance', def: 'Federal Deposit Insurance Corporation insures bank deposits up to $250,000 per depositor, per bank. Prevents bank runs.' },
+  { unit: '4.1', term: 'Liquidity', def: 'How quickly and easily an asset can be converted to cash without significant loss of value. Cash is most liquid; real estate is least liquid.' },
+  { unit: '4.1', term: 'Stock vs. Bond', def: 'Stock = ownership (equity), variable returns, higher risk. Bond = loan (debt), fixed returns, lower risk.' },
+  { unit: '4.2', term: 'Fisher Equation', def: 'Real interest rate = Nominal rate − Expected inflation (r = i − π). The most important equation for Unit 4.' },
+  { unit: '4.2', term: 'Nominal Interest Rate', def: 'The "sticker price" rate quoted by banks. Does NOT account for inflation. This is what you see advertised.' },
+  { unit: '4.2', term: 'Real Interest Rate', def: 'The rate adjusted for inflation. Tells you your actual purchasing power gain/loss. If real rate is negative, you\'re losing money.' },
+  { unit: '4.2', term: 'Negative Real Rate', def: 'When inflation exceeds the nominal interest rate. Your savings lose purchasing power even while earning interest.' },
+  { unit: '4.3', term: 'Medium of Exchange', def: 'Money\'s primary function — it\'s accepted for buying and selling goods. Eliminates the need for barter.' },
+  { unit: '4.3', term: 'Unit of Account', def: 'Money as a common measuring stick for value. All prices are denominated in the same unit (dollars, euros, etc.).' },
+  { unit: '4.3', term: 'Store of Value', def: 'Money can be saved and spent later without losing all its value (though inflation erodes it over time).' },
+  { unit: '4.3', term: 'M1 Money Supply', def: 'Most liquid forms: cash, coins, checking accounts, traveler\'s checks. Money you can spend RIGHT NOW.' },
+  { unit: '4.3', term: 'M2 Money Supply', def: 'M1 plus near-money: savings accounts, money market funds, small CDs. Less liquid but still accessible.' },
+  { unit: '4.3', term: 'Fiat Money', def: 'Money with no intrinsic value, declared legal tender by government. All modern currencies are fiat money.' },
+  { unit: '4.4', term: 'Fractional Reserve Banking', def: 'Banks keep only a fraction of deposits as reserves and lend the rest. This is how banks create money.' },
+  { unit: '4.4', term: 'Money Multiplier', def: '1 / Reserve Ratio. Shows the maximum amount of money the banking system can create from a new deposit.' },
+  { unit: '4.4', term: 'Excess Reserves', def: 'Reserves above the required amount. Banks can lend these out, creating new money in the process.' },
+  { unit: '4.4', term: 'Required Reserve Ratio', def: 'The percentage of deposits banks must hold as reserves. Set by the Fed. Currently 0% since March 2020.' },
+  { unit: '4.5', term: 'Money Demand Curve', def: 'Downward sloping. At lower interest rates, the opportunity cost of holding cash is lower, so people demand more money.' },
+  { unit: '4.5', term: 'Money Supply Curve', def: 'Vertical line. The Fed sets the money supply; it doesn\'t change with the interest rate.' },
+  { unit: '4.5', term: 'Liquidity Preference', def: 'Keynes\' theory that people prefer to hold liquid assets (cash) and must be compensated with interest to give up liquidity.' },
+  { unit: '4.5', term: 'Transaction Demand', def: 'Money held for everyday purchases. Increases with GDP and price level.' },
+  { unit: '4.6', term: 'Open Market Operations', def: 'The Fed\'s MOST USED TOOL. Buying bonds = expansionary (↑ MS). Selling bonds = contractionary (↓ MS).' },
+  { unit: '4.6', term: 'Expansionary Monetary Policy', def: 'Fed buys bonds → MS ↑ → interest rate ↓ → investment ↑ → AD ↑ → GDP ↑. Used during recessions.' },
+  { unit: '4.6', term: 'Contractionary Monetary Policy', def: 'Fed sells bonds → MS ↓ → interest rate ↑ → investment ↓ → AD ↓ → inflation ↓. Used during inflation.' },
+  { unit: '4.6', term: 'Federal Funds Rate', def: 'The rate banks charge each other for overnight loans of reserves. The Fed\'s primary interest rate target.' },
+  { unit: '4.6', term: 'Discount Rate', def: 'The rate the Fed charges banks for direct loans (the "lender of last resort" rate). Higher than the FFR.' },
+  { unit: '4.7', term: 'Loanable Funds Market', def: 'Where savers (supply) meet borrowers (demand). Determines the REAL interest rate. Supply slopes up, demand slopes down.' },
+  { unit: '4.7', term: 'Crowding Out', def: 'Government deficit spending → borrows more → DLF shifts right → real rate ↑ → private investment ↓. A key limitation of fiscal policy.' },
+  { unit: '4.7', term: 'Supply of Loanable Funds', def: 'Upward sloping — savers supply more funds when the real interest rate is higher (better return on saving).' },
+  { unit: '4.7', term: 'Money Market vs. Loanable Funds', def: 'Money Market: NOMINAL rate, vertical MS, short-run, controlled by Fed. Loanable Funds: REAL rate, upward SLF, long-run, market-driven.' },
+];
+
+let fcIndex = 0;
+let fcFiltered = [...allFlashcards];
+let fcFilterUnit = 'all';
+
+function initFlashcards() {
+  const filterDiv = document.getElementById('flashcardFilter');
+  const units = ['all', '4.1', '4.2', '4.3', '4.4', '4.5', '4.6', '4.7'];
+  filterDiv.innerHTML = units.map(u => `<button class="filter-btn${u === 'all' ? ' active' : ''}" onclick="filterFlashcards('${u}')">${u === 'all' ? 'All Units' : 'Unit ' + u}</button>`).join('');
+  updateFlashcard();
+}
+
+function filterFlashcards(unit) {
+  fcFilterUnit = unit;
+  fcFiltered = unit === 'all' ? [...allFlashcards] : allFlashcards.filter(f => f.unit === unit);
+  fcIndex = 0;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.textContent === (unit === 'all' ? 'All Units' : 'Unit ' + unit)));
+  document.getElementById('flashcard').classList.remove('flipped');
+  updateFlashcard();
+}
+
+function updateFlashcard() {
+  if (fcFiltered.length === 0) return;
+  const card = fcFiltered[fcIndex];
+  document.getElementById('fcUnitTag').textContent = 'Unit ' + card.unit;
+  document.getElementById('fcTerm').textContent = card.term;
+  document.getElementById('fcDef').textContent = card.def;
+  document.getElementById('fcCounter').textContent = `${fcIndex + 1} / ${fcFiltered.length}`;
+}
+
+function flipCard() { document.getElementById('flashcard').classList.toggle('flipped'); }
+function nextCard() { fcIndex = (fcIndex + 1) % fcFiltered.length; document.getElementById('flashcard').classList.remove('flipped'); updateFlashcard(); }
+function prevCard() { fcIndex = (fcIndex - 1 + fcFiltered.length) % fcFiltered.length; document.getElementById('flashcard').classList.remove('flipped'); updateFlashcard(); }
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') nextCard();
+  else if (e.key === 'ArrowLeft') prevCard();
+  else if (e.key === ' ') { e.preventDefault(); flipCard(); }
+});
+initFlashcards();
+
+// ===== QUIZ =====
+const quizQuestions = [
+  { q: 'Bond prices and interest rates have what kind of relationship?', opts: ['Direct (positive)', 'Inverse (negative)', 'No relationship', 'It depends on inflation'], correct: 1, explain: 'Bond prices and interest rates always move in OPPOSITE directions. When rates rise, existing bonds lose value because new bonds offer higher returns.', unit: '4.1' },
+  { q: 'Which is the safest financial asset?', opts: ['Stocks', 'Corporate bonds', 'Government bonds (T-bills)', 'Cryptocurrency'], correct: 2, explain: 'Government bonds (Treasury bills) are considered the safest because they are backed by the full faith and credit of the U.S. government.', unit: '4.1' },
+  { q: 'If the nominal interest rate is 7% and expected inflation is 4%, the real interest rate is:', opts: ['11%', '4%', '3%', '-3%'], correct: 2, explain: 'Using the Fisher Equation: Real rate = Nominal rate − Inflation = 7% − 4% = 3%.', unit: '4.2' },
+  { q: 'If the real interest rate is negative, it means:', opts: ['Banks are charging you to hold money', 'Inflation exceeds the nominal rate', 'The Fed has set rates below zero', 'You owe money on your savings'], correct: 1, explain: 'A negative real rate means inflation is higher than the nominal interest rate, so your purchasing power decreases even while earning interest.', unit: '4.2' },
+  { q: 'TIPS (Treasury Inflation-Protected Securities) protect investors from:', opts: ['Stock market crashes', 'Rising interest rates', 'Inflation eroding returns', 'Currency devaluation'], correct: 2, explain: 'TIPS adjust their principal value based on inflation, guaranteeing a real rate of return regardless of what inflation does.', unit: '4.2' },
+  { q: 'Which is NOT one of the three functions of money?', opts: ['Medium of exchange', 'Store of value', 'Source of wealth', 'Unit of account'], correct: 2, explain: 'The three functions are medium of exchange, unit of account, and store of value. "Source of wealth" is not a function of money.', unit: '4.3' },
+  { q: 'Which of these is included in M1 but NOT in "M2 only"?', opts: ['Savings accounts', 'Checking account balances', 'Money market funds', 'Certificates of deposit'], correct: 1, explain: 'M1 includes the most liquid forms: cash, coins, checking accounts, and traveler\'s checks. Savings accounts, money market funds, and CDs are in M2.', unit: '4.3' },
+  { q: 'Fiat money has value because:', opts: ['It is backed by gold', 'It has intrinsic value', 'The government declares it legal tender', 'Banks guarantee its value'], correct: 2, explain: 'Fiat money has no intrinsic value and is not backed by a commodity. Its value comes from government decree and people\'s confidence in it.', unit: '4.3' },
+  { q: 'If the required reserve ratio is 20%, the money multiplier is:', opts: ['2', '5', '10', '20'], correct: 1, explain: 'Money Multiplier = 1 / Reserve Ratio = 1 / 0.20 = 5. A $100 deposit could create up to $500 in the money supply.', unit: '4.4' },
+  { q: 'A bank has $10,000 in deposits and a 10% reserve requirement. How much can it lend?', opts: ['$1,000', '$9,000', '$10,000', '$100,000'], correct: 1, explain: 'Required reserves = 10% × $10,000 = $1,000. Excess reserves available for lending = $10,000 − $1,000 = $9,000.', unit: '4.4' },
+  { q: 'A $500 initial deposit with a 25% reserve ratio creates a maximum total money supply of:', opts: ['$500', '$1,000', '$2,000', '$5,000'], correct: 2, explain: 'Multiplier = 1/0.25 = 4. Maximum money supply = $500 × 4 = $2,000.', unit: '4.4' },
+  { q: 'In the money market, the money supply curve is:', opts: ['Downward sloping', 'Upward sloping', 'Vertical', 'Horizontal'], correct: 2, explain: 'The money supply is vertical because the Fed sets it at a fixed quantity, regardless of the interest rate.', unit: '4.5' },
+  { q: 'If the Fed buys government bonds, in the money market:', opts: ['MS shifts left, interest rate rises', 'MS shifts right, interest rate falls', 'MD shifts right, interest rate rises', 'MD shifts left, interest rate falls'], correct: 1, explain: 'Buying bonds injects money → MS shifts right → at the new equilibrium, the nominal interest rate is lower.', unit: '4.5' },
+  { q: 'The transaction demand for money increases when:', opts: ['Interest rates rise', 'GDP increases', 'The Fed sells bonds', 'People become more optimistic about stocks'], correct: 1, explain: 'Higher GDP means more economic activity and more transactions, so people need more money for daily purchases.', unit: '4.5' },
+  { q: 'Which is the Fed\'s MOST frequently used monetary policy tool?', opts: ['Reserve requirements', 'Discount rate', 'Open market operations', 'Quantitative easing'], correct: 2, explain: 'Open market operations (buying/selling bonds) are the primary and most frequently used tool because they can be executed quickly and precisely.', unit: '4.6' },
+  { q: 'During a recession, the Fed would most likely:', opts: ['Sell bonds and raise rates', 'Buy bonds and lower rates', 'Increase reserve requirements', 'Decrease the money supply'], correct: 1, explain: 'Expansionary policy: buy bonds → increase MS → lower interest rates → stimulate investment and AD → increase GDP and employment.', unit: '4.6' },
+  { q: 'The transmission mechanism of expansionary monetary policy is:', opts: ['↑MS → ↓i → ↑I → ↑AD → ↑GDP', '↓MS → ↑i → ↓I → ↓AD → ↓GDP', '↑MS → ↑i → ↑I → ↑AD → ↑GDP', '↓MS → ↓i → ↑I → ↑AD → ↑GDP'], correct: 0, explain: 'Expansionary: Money supply increases → interest rate falls → investment increases → AD increases → GDP increases.', unit: '4.6' },
+  { q: 'Which is a limitation of monetary policy?', opts: ['It works instantly', 'Banks may not lend excess reserves (liquidity trap)', 'The Fed has too few tools', 'It never affects inflation'], correct: 1, explain: 'In a liquidity trap, even with low rates, banks hoard reserves and consumers/businesses don\'t borrow. This limits monetary policy effectiveness.', unit: '4.6' },
+  { q: 'In the loanable funds market, the supply curve slopes upward because:', opts: ['The Fed controls the supply', 'Higher real rates encourage more saving', 'Banks lend more at lower rates', 'Government borrows more at higher rates'], correct: 1, explain: 'Higher real interest rates provide better returns to savers, encouraging them to save more and supply more loanable funds.', unit: '4.7' },
+  { q: 'The loanable funds market determines the:', opts: ['Nominal interest rate', 'Real interest rate', 'Federal funds rate', 'Discount rate'], correct: 1, explain: 'The loanable funds market determines the REAL interest rate. The money market determines the NOMINAL interest rate.', unit: '4.7' },
+  { q: '"Crowding out" occurs when:', opts: ['Private investment increases', 'The Fed increases money supply', 'Government borrowing raises interest rates, reducing private investment', 'Consumer spending replaces investment'], correct: 2, explain: 'Government deficit spending → increased demand for loanable funds → DLF shifts right → real rate rises → private investment falls.', unit: '4.7' },
+  { q: 'What is the key difference between the money market Y-axis and the loanable funds Y-axis?', opts: ['Money market uses real rate; loanable funds uses nominal rate', 'Money market uses nominal rate; loanable funds uses real rate', 'Both use nominal rates', 'Both use real rates'], correct: 1, explain: 'Money market Y-axis = nominal interest rate. Loanable funds Y-axis = real interest rate. This is one of the most common AP exam distinctions.', unit: '4.7' },
+  { q: 'If the government runs a budget surplus, in the loanable funds market:', opts: ['DLF shifts right, real rate rises', 'DLF shifts left, real rate falls', 'SLF shifts left, real rate rises', 'SLF shifts right, real rate falls'], correct: 1, explain: 'A surplus means the government borrows less → DLF shifts left → real rate falls → private investment increases (opposite of crowding out).', unit: '4.7' },
+  { q: 'An increase in the money supply causes a(n) _______ in the nominal interest rate and a(n) _______ in investment.', opts: ['decrease; decrease', 'decrease; increase', 'increase; increase', 'increase; decrease'], correct: 1, explain: 'More money supply → lower interest rate → cheaper borrowing → more investment. This is the expansionary monetary policy chain.', unit: '4.5' },
+  { q: 'The current Federal Reserve required reserve ratio (as of 2026) is:', opts: ['3%', '10%', '0%', '5%'], correct: 2, explain: 'The Fed reduced the required reserve ratio to 0% in March 2020 and it has remained there. Banks are not required to hold any specific percentage of deposits.', unit: '4.4' },
+];
+
+let quizAnswered = 0;
+let quizCorrect = 0;
+
+function initQuiz() {
+  const container = document.getElementById('quizContainer');
+  container.innerHTML = quizQuestions.map((q, i) => `
+    <div class="quiz-question" id="qq${i}">
+      <div class="quiz-q-num">Question ${i + 1} · Unit ${q.unit}</div>
+      <div class="quiz-q-text">${q.q}</div>
+      ${q.opts.map((opt, j) => `<button class="quiz-option" onclick="answerQuiz(${i}, ${j})" id="qq${i}o${j}">${String.fromCharCode(65 + j)}) ${opt}</button>`).join('')}
+      <div class="quiz-explanation" id="qq${i}exp">${q.explain}</div>
+    </div>`).join('');
+}
+
+function answerQuiz(qIdx, oIdx) {
+  const q = quizQuestions[qIdx];
+  const qEl = document.getElementById('qq' + qIdx);
+  if (qEl.classList.contains('answered-correct') || qEl.classList.contains('answered-wrong')) return;
+
+  quizAnswered++;
+  const isCorrect = oIdx === q.correct;
+  if (isCorrect) quizCorrect++;
+
+  // Lock all options
+  q.opts.forEach((_, j) => {
+    const optEl = document.getElementById(`qq${qIdx}o${j}`);
+    optEl.classList.add('locked');
+    if (j === q.correct) optEl.classList.add('show-correct');
+    if (j === oIdx && !isCorrect) optEl.classList.add('selected-wrong');
+    if (j === oIdx && isCorrect) optEl.classList.add('selected-correct');
+  });
+
+  qEl.classList.add(isCorrect ? 'answered-correct' : 'answered-wrong');
+  document.getElementById(`qq${qIdx}exp`).classList.add('visible');
+
+  // Check if quiz complete
+  if (quizAnswered === quizQuestions.length) {
+    const pct = Math.round(quizCorrect / quizQuestions.length * 100);
+    const sb = document.getElementById('quizScoreboard');
+    sb.classList.add('visible');
+    document.getElementById('quizScoreBig').textContent = `${quizCorrect}/${quizQuestions.length} (${pct}%)`;
+    let label = '';
+    if (pct >= 90) label = 'Outstanding! You\'re ready for that 5!';
+    else if (pct >= 75) label = 'Great work! Review the ones you missed and you\'re golden.';
+    else if (pct >= 60) label = 'Solid foundation. Focus on the topics you missed.';
+    else label = 'Keep studying! Use the flashcards and interactive tools above, then try again.';
+    document.getElementById('quizScoreLabel').textContent = label;
+    sb.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+}
+initQuiz();
+</script>
+</body>
+</html>
